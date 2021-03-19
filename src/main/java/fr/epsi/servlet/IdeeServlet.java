@@ -37,22 +37,26 @@ public class IdeeServlet extends HttpServlet{
 					req.setAttribute("listIdee", service.getListTop());
 					this.getServletContext().getRequestDispatcher("/WEB-INF/Pages/TopUtulisateur.jsp").forward(req,resp);
 				}
+				if(req.getParameter("action").equals("creation")) {
+					this.getServletContext().getRequestDispatcher("/WEB-INF/Pages/CreateIdee.jsp").forward(req, resp);
+				}
 			}
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 	        throws ServletException, IOException
 	    {
-				if(req.getParameter("actionPost").equals("formCreate")) {
+				if(req.getParameter("actionPost").equals("cree")) {
 				 Idee i = new Idee();
 				 Categorie c = new Categorie();
-				 c.setNom(req.getParameter("CName"));
-				 c.setNom(req.getParameter("IName"));
+				 c.setNom(req.getParameter("categorie"));
+				 i.setDescription(req.getParameter("image"));
+				 i.setPhoto(req.getParameter("description"));
 		  		 i.setDate(Date.valueOf(java.time.LocalDate.now()));
 				 i.setCategorie(c);
 			     service.create(i);
 		    	 req.setAttribute("listIdee", service.getIdeeList());
-		    	 this.getServletContext().getRequestDispatcher("/WEB-INF/pages/IdeeList.jsp").forward(req, resp);
+		    	 this.getServletContext().getRequestDispatcher("/WEB-INF/pages/CreateIdee.jsp").forward(req, resp);
 		    }
 	    }
 }

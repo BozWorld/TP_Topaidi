@@ -9,8 +9,9 @@
         <li><a href="Utulisateur?action=Connexion">Connexion</a></li>
         <li><a href="Utulisateur?action=Inscription">Inscription</a></li>
         <li><a href="Idee?action=ListTop">Tops</a></li>
-        <li><a href="Idee?action=listBuzz">Buzz</a></li>
-        <li><a href="Idee?action=listBrain">Brains</a></li>
+        <li><a href="Idee?action=ListBuzz">Buzz</a></li>
+        <li><a href="Idee?action=ListBrain">Brains</a></li>
+        <li><a href="Idee?action=creation">crée idée</a></li>
       </ul>
     </div>
   </nav>

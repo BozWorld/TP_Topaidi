@@ -12,19 +12,17 @@
 <div class="container">
 <%@include file="commons/menu.jsp" %>
 
-<h1>Top idée </h1>
+<h1>Top idée ! </h1>
 
 <table>
  <c:forEach var="i" items="${listIdee}" >
     <tr>
-    	 <td><c:out value="${i.utulisateur.nom}"></c:out></td>
+    	 <td><c:out value="${i.utulisateur.mail}"></c:out></td>
 	     <td><c:out value="${i.description}"></c:out></td>
 	     <td><c:out value="${i.date}"></c:out></td>
     </tr>
  </c:forEach>
  </table>
-
-<a class="waves-effect waves-light btn" href="Idees?action=create">Ajouter votre commentaire! </a>
 
 </div>
 

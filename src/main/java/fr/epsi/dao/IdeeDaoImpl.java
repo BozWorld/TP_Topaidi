@@ -27,10 +27,6 @@ public class IdeeDaoImpl implements IdeeDao{
 	public void create(Idee i) {
 			try {
 				utx.begin();
-				Idee Idee = new Idee();
-				Idee.setCategorie(i.getCategorie());
-				Idee.setPhoto(i.getPhoto());
-				Idee.setDescription(i.getDescription());
 				
 			} catch (NotSupportedException e1) {
 				// TODO Auto-generated catch block
