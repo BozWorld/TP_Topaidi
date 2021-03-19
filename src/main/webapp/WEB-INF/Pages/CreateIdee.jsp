@@ -10,7 +10,7 @@
 <body>
 <div class="container">
 <%@include file="commons/menu.jsp" %>
-	<form action="idee?action=cree" method="post">
+	<form action="Idee?actionPost=cree" method="post">
 	<input type="text" name="description" placeholder="Description"/>
 	<input type="text"name="image" placeholder="url de l'image"/>
 	<input type="text" name="categorie" placeholder="rentrez la catégorie"/>

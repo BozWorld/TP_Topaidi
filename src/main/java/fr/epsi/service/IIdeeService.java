@@ -7,6 +7,8 @@ import fr.epsi.entite.Utulisateur;
 
 public interface IIdeeService {
 	
+	List<Idee> getIdeeListRaw();
+	
 	List<Idee> getIdeeList();
 	
 	List<Idee> getListBuzz();

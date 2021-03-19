@@ -59,9 +59,12 @@ public class IdeeDaoImpl implements IdeeDao{
 			}
 			
 		}
-	
+	public List<Idee> getListIdeeRaw(){
+		return em.createQuery("select i from Idee i order by i.date desc", Idee.class)
+				 .getResultList();
+	}
 	public List<Idee> getListIdee() {
-		return em.createQuery("select i from Idee i order by ((i.nbTop / (i.nbDeFlop + i.nbDeTop)) * 100) desc, i.nbVotes desc, i.date asc", Idee.class)
+		return em.createQuery("select i from Idee i order by ((i.nbDeTop / (i.nbDeFlop + i.nbDeTop)) * 100) desc, i.totalVote desc, i.date asc", Idee.class)
 				.setMaxResults(3) 
 				.getResultList();
 	}

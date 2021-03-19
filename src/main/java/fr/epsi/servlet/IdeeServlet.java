@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.epsi.entite.Categorie;
 import fr.epsi.entite.Idee;
+import fr.epsi.service.ICategorieService;
 import fr.epsi.service.IIdeeService;
 import fr.epsi.service.IdeeService;
 
@@ -20,6 +21,9 @@ public class IdeeServlet extends HttpServlet{
 	
 	@EJB
 	private IIdeeService service;
+	
+	@EJB 
+	private ICategorieService categorieService;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -47,16 +51,18 @@ public class IdeeServlet extends HttpServlet{
 	        throws ServletException, IOException
 	    {
 				if(req.getParameter("actionPost").equals("cree")) {
+				 System.out.println("test");
 				 Idee i = new Idee();
 				 Categorie c = new Categorie();
 				 c.setNom(req.getParameter("categorie"));
-				 i.setDescription(req.getParameter("image"));
-				 i.setPhoto(req.getParameter("description"));
+				 i.setDescription(req.getParameter("description"));
+				 i.setPhoto(req.getParameter("image"));
 		  		 i.setDate(Date.valueOf(java.time.LocalDate.now()));
 				 i.setCategorie(c);
+				 categorieService.create(c);
 			     service.create(i);
 		    	 req.setAttribute("listIdee", service.getIdeeList());
-		    	 this.getServletContext().getRequestDispatcher("/WEB-INF/pages/CreateIdee.jsp").forward(req, resp);
+		    	 this.getServletContext().getRequestDispatcher("/WEB-INF/Pages/hello.jsp").forward(req, resp);
 		    }
 	    }
 }

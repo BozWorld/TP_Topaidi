@@ -21,7 +21,11 @@ public class IdeeService implements IIdeeService {
 	private EntityManager em;
 	@Resource
 	private UserTransaction utx;
-
+	
+	public List<Idee> getIdeeListRaw() {
+		IdeeDaoImpl dao =  new IdeeDaoImpl(em, utx);
+		return dao.getListIdeeRaw();
+	}
 	public List<Idee> getIdeeList() {
 		IdeeDaoImpl dao =  new IdeeDaoImpl(em, utx);
 		return dao.getListIdee();

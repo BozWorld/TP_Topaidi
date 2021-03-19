@@ -8,6 +8,8 @@ import fr.epsi.entite.Utulisateur;
 public interface IdeeDao {
 	void create(Idee i);
 	
+	List<Idee> getListIdeeRaw();
+	
 	List<Idee> getListIdee();
 	
 	List<Idee> getListBuzz();

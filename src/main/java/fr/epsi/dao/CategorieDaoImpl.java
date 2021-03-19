@@ -11,23 +11,24 @@ import javax.transaction.RollbackException;
 import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
 
+import fr.epsi.entite.Categorie;
 import fr.epsi.entite.Commentaire;
 import fr.epsi.entite.Idee;
 import fr.epsi.entite.Vote;
 import fr.epsi.entite.Utulisateur;
+import fr.epsi.entite.Idee;
 
-public class UtulisateurDaoImpl implements UtulisateurDao{
+public class CategorieDaoImpl implements CategorieDao{
 	EntityManager em;
 	UserTransaction utx;
-	public UtulisateurDaoImpl(EntityManager em, UserTransaction utx) {
+	public CategorieDaoImpl(EntityManager em, UserTransaction utx) {
 		this.em = em;
 		this.utx = utx;
 	}
-	public void create(Utulisateur u) {
+	public void create(Categorie c) {
 			try {
 				utx.begin();
-				Utulisateur newUtulisateur = new Utulisateur();
-				newUtulisateur.setMail(u.getMail());
+				
 			} catch (NotSupportedException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -35,7 +36,7 @@ public class UtulisateurDaoImpl implements UtulisateurDao{
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			em.persist(u);
+			em.persist(c);
 			try {
 				utx.commit();
 			} catch (SecurityException e) {
@@ -48,7 +49,7 @@ public class UtulisateurDaoImpl implements UtulisateurDao{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (HeuristicMixedException e) {
-				// TODO Auto-generated catch block
+				// TODO Auto-generated catch block 
 				e.printStackTrace();
 			} catch (HeuristicRollbackException e) {
 				// TODO Auto-generated catch block
@@ -59,23 +60,11 @@ public class UtulisateurDaoImpl implements UtulisateurDao{
 			}
 			
 		}
-
-	public List<Utulisateur> getListUtulisateur() {
-		return em.createQuery("select u from Utulisateur u order by u.nom asc", Utulisateur.class)
-				 .setMaxResults(3)
+	@Override
+	public List<Categorie> getAllCategorie() {
+		return em.createQuery("select c from Categorie c order by c.nom asc", Categorie.class)
 				 .getResultList();
 	}
 	
-	public List<Utulisateur> getTopUtulisateur() {
-		return em.createQuery("select u from Utulisateur u order by COUNT(u.ideeList) asc", Utulisateur.class)
-				 .setMaxResults(3)
-				 .getResultList();
-	}
-	public Utulisateur getUtulisateur(String code, String mail) {
-		return em.createQuery("Select u from Utulisateur u WHERE u.mail :=mail AND u.code :=code",Utulisateur.class)
-				.setParameter("mail", mail)
-				.setParameter("code", code)
-				.getSingleResult();
-	}
 		
 	}
