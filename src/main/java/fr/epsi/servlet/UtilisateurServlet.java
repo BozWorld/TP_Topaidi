@@ -25,6 +25,10 @@ public class UtilisateurServlet extends HttpServlet{
 					
 					this.getServletContext().getRequestDispatcher("/WEB-INF/Pages/Inscription.jsp").forward(req,resp);
 				}
+				if(req.getParameter("action").equals("Connexion")) {
+					
+					this.getServletContext().getRequestDispatcher("/WEB-INF/Pages/Connexion.jsp").forward(req,resp);
+				}
 			}
 	
 	@Override
@@ -43,7 +47,7 @@ public class UtilisateurServlet extends HttpServlet{
 			}
 			
 		else if (req.getParameter("action").equals("connexion")) {
-			String mail = req.getParameter("mail");
+			String mail = req.getParameter("utilisateurMail");
 			String password = req.getParameter("password");
 			if(!mail.isBlank() && !password.isBlank()) {
 				Utilisateur u = service.getUtilisateur(mail,password);

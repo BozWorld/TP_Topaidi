@@ -11,7 +11,7 @@
 <div class="container">
 <%@include file="commons/menu.jsp" %>
 
-<h1>Top idée </h1>
+<h1>Crée vous un compte</h1>
 
 <form action="Utilisateur" method="post">
 	<label for="utilisateur">adresse mail :</label> <input type="text"  name="utilisateurMail">

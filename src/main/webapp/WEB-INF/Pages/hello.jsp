@@ -18,8 +18,8 @@
 
  <c:forEach var="i" items="${listIdee}" >
     	 <img width="500px" height="350px" src="<c:out value="${i.photo}"/>"> <br>
-    	 <c:out value="${i.description}"></c:out> <br>
-    	 <c:out value="${i.date}"></c:out> <br>
+    	 <c:out value="${i.description}">Description : </c:out> <br>
+    	 <c:out value="${i.date}"> Date de publication : </c:out> <br>
  </c:forEach>
 </div>
 

@@ -9,9 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import fr.epsi.entite.Categorie;
 import fr.epsi.entite.Idee;
+import fr.epsi.entite.Utilisateur;
 import fr.epsi.service.ICategorieService;
 import fr.epsi.service.IIdeeService;
 import fr.epsi.service.IdeeService;
@@ -51,7 +53,8 @@ public class IdeeServlet extends HttpServlet{
 	        throws ServletException, IOException
 	    {
 				if(req.getParameter("actionPost").equals("cree")) {
-				 System.out.println("test");
+				 HttpSession session = req.getSession();
+				 Utilisateur u = (Utilisateur) session.getAttribute("utilisateur");
 				 Idee i = new Idee();
 				 Categorie c = new Categorie();
 				 c.setNom(req.getParameter("categorie"));
@@ -59,6 +62,7 @@ public class IdeeServlet extends HttpServlet{
 				 i.setPhoto(req.getParameter("image"));
 		  		 i.setDate(Date.valueOf(java.time.LocalDate.now()));
 				 i.setCategorie(c);
+				 i.setUtilisateur(u);
 				 categorieService.create(c);
 			     service.create(i);
 		    	 req.setAttribute("listIdee", service.getIdeeList());
