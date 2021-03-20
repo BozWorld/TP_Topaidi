@@ -14,19 +14,19 @@ import javax.transaction.UserTransaction;
 import fr.epsi.entite.Commentaire;
 import fr.epsi.entite.Idee;
 import fr.epsi.entite.Vote;
-import fr.epsi.entite.Utulisateur;
+import fr.epsi.entite.Utilisateur;
 
-public class UtulisateurDaoImpl implements UtulisateurDao{
+public class UtilisateurDaoImpl implements UtilisateurDao{
 	EntityManager em;
 	UserTransaction utx;
-	public UtulisateurDaoImpl(EntityManager em, UserTransaction utx) {
+	public UtilisateurDaoImpl(EntityManager em, UserTransaction utx) {
 		this.em = em;
 		this.utx = utx;
 	}
-	public void create(Utulisateur u) {
+	public void create(Utilisateur u) {
 			try {
 				utx.begin();
-				Utulisateur newUtulisateur = new Utulisateur();
+				Utilisateur newUtulisateur = new Utilisateur();
 				newUtulisateur.setMail(u.getMail());
 			} catch (NotSupportedException e1) {
 				// TODO Auto-generated catch block
@@ -60,19 +60,19 @@ public class UtulisateurDaoImpl implements UtulisateurDao{
 			
 		}
 
-	public List<Utulisateur> getListUtulisateur() {
-		return em.createQuery("select u from Utulisateur u order by u.nom asc", Utulisateur.class)
+	public List<Utilisateur> getListUtilisateur() {
+		return em.createQuery("select u from Utilisateur u order by u.nom asc", Utilisateur.class)
 				 .setMaxResults(3)
 				 .getResultList();
 	}
 	
-	public List<Utulisateur> getTopUtulisateur() {
-		return em.createQuery("select u from Utulisateur u order by COUNT(u.ideeList) asc", Utulisateur.class)
+	public List<Utilisateur> getTopUtilisateur() {
+		return em.createQuery("select u from Utilisateur u order by COUNT(u.ideeList) asc", Utilisateur.class)
 				 .setMaxResults(3)
 				 .getResultList();
 	}
-	public Utulisateur getUtulisateur(String code, String mail) {
-		return em.createQuery("Select u from Utulisateur u WHERE u.mail :=mail AND u.code :=code",Utulisateur.class)
+	public Utilisateur getUtilisateur(String code, String mail) {
+		return em.createQuery("Select u from Utilisateur u WHERE u.mail :=mail AND u.code :=code",Utilisateur.class)
 				.setParameter("mail", mail)
 				.setParameter("code", code)
 				.getSingleResult();

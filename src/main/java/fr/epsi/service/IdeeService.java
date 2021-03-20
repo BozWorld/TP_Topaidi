@@ -12,7 +12,7 @@ import javax.transaction.UserTransaction;
 
 import fr.epsi.dao.IdeeDaoImpl;
 import fr.epsi.entite.Idee;
-import fr.epsi.entite.Utulisateur;
+import fr.epsi.entite.Utilisateur;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.BEAN)
@@ -41,9 +41,9 @@ public class IdeeService implements IIdeeService {
 		return dao.getListTop();
 	}
 	
-	public List<Utulisateur> getTopUtulisateur() {
+	public List<Utilisateur> getTopUtilisateur() {
 		IdeeDaoImpl dao =  new IdeeDaoImpl(em, utx);
-		return dao.getTopUtulisateur();
+		return dao.getTopUtilisateur();
 	}
 	
 	public void create(Idee i) {

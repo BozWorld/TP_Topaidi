@@ -3,7 +3,7 @@ package fr.epsi.dao;
 import java.util.List;
 
 import fr.epsi.entite.Idee;
-import fr.epsi.entite.Utulisateur;
+import fr.epsi.entite.Utilisateur;
 
 public interface IdeeDao {
 	void create(Idee i);
@@ -16,8 +16,8 @@ public interface IdeeDao {
 	
 	List<Idee> getListTop();
 	
-	List<Utulisateur> getTopUtulisateur();
+	List<Utilisateur> getTopUtilisateur();
 	
-	Utulisateur getUtulisateur(Long id);
+	Utilisateur getUtilisateur(Long id);
 	
 }

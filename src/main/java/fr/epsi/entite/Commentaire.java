@@ -18,7 +18,7 @@ public class Commentaire {
 	private Long id;
 	
 	@ManyToOne
-	private Utulisateur utulisateur;
+	private Utilisateur utilisateur;
 	
 	private Date date;
 	
@@ -27,12 +27,12 @@ public class Commentaire {
 	
 	private String description;
 	
-	public Utulisateur getUtulisateur() {
-		return utulisateur;
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
 	}
 	
-	public void setUtulisateur(Utulisateur utulisateur) {
-		this.utulisateur = utulisateur;
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
 	}
 	public Date getDate() {
 		return date;

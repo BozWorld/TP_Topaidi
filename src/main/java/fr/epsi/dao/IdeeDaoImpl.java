@@ -14,7 +14,7 @@ import javax.transaction.UserTransaction;
 import fr.epsi.entite.Commentaire;
 import fr.epsi.entite.Idee;
 import fr.epsi.entite.Vote;
-import fr.epsi.entite.Utulisateur;
+import fr.epsi.entite.Utilisateur;
 import fr.epsi.entite.Idee;
 
 public class IdeeDaoImpl implements IdeeDao{
@@ -81,14 +81,14 @@ public class IdeeDaoImpl implements IdeeDao{
 				.getResultList();
 	}
 	
-	public Utulisateur getUtulisateur(Long id) {
-		return em.createQuery("select u from Utulisateur u where u.id :=id", Utulisateur.class)
+	public Utilisateur getUtilisateur(Long id) {
+		return em.createQuery("select u from Utilisateur u where u.id :=id", Utilisateur.class)
 				.setParameter("id", id)
 				.getSingleResult();
 	}
 	
-	public List<Utulisateur> getTopUtulisateur(){
-		return em.createQuery("select i.utulisateur from idee i order by i.utulisateur", Utulisateur.class)
+	public List<Utilisateur> getTopUtilisateur(){
+		return em.createQuery("select i.utilisateur from idee i order by i.utulisateur", Utilisateur.class)
 				.setMaxResults(3)
 				.getResultList();
 	}

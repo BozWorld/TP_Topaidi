@@ -13,8 +13,8 @@
 
 <h1>Top idée </h1>
 
-<form action="Utulisateur" method="post">
-	<label for="utulisateur">adresse mail :</label> <input type="text"  name="utulisateurMail">
+<form action="Utilisateur" method="post">
+	<label for="utilisateur">adresse mail :</label> <input type="text"  name="utilisateurMail">
 	<label for="password">mot de passe :</label> <input type="text"  name="password">
 	<input type="submit" value="Valider" />
  </form>

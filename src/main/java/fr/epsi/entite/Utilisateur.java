@@ -9,22 +9,24 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Utulisateur {
+public class Utilisateur {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToMany(mappedBy = "utulisateur")
+	@OneToMany(mappedBy = "utilisateur")
 	private List<Commentaire> commentaireList;
 	
-	@OneToMany(mappedBy = "utulisateur")
+	@OneToMany(mappedBy = "utilisateur")
 	private List<Vote> voteList;
 	
-	@OneToMany(mappedBy = "utulisateur")
+	@OneToMany(mappedBy = "utilisateur")
 	private List<Idee> ideeList;
 	
 	private String mail;
+	
+	private String pseudo;
 	
 	private String code;
 
@@ -34,6 +36,14 @@ public class Utulisateur {
 	
 	public void setMail(String mail) {
 		this.mail = mail;
+	}
+	
+	public String getPseudo() {
+		return pseudo;
+	}
+	
+	public void setPseudo(String pseudo) {
+		this.pseudo = pseudo;
 	}
 	
 	public String getCode() {

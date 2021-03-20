@@ -19,7 +19,7 @@ public class Idee {
 	private Long id;
 	
 	@ManyToOne
-	private Utulisateur utulisateur;
+	private Utilisateur utilisateur;
 	
 	@OneToMany(mappedBy = "idee")
 	private List<Commentaire> commentaire;
@@ -52,12 +52,12 @@ public class Idee {
 	public void setTitre(String titre) {
 		this.titre = titre;
 	}
-	public Utulisateur getUtulisateur() {
-		return utulisateur;
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
 	}
 	
-	public void setUtulisateur(Utulisateur utulisateur) {
-		this.utulisateur = utulisateur;
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
 	}
 	
 	public List<Commentaire> getCommentaireList(){

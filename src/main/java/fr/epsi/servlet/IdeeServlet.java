@@ -39,7 +39,7 @@ public class IdeeServlet extends HttpServlet{
 				}
 				if(req.getParameter("action").equals("ListBrain")) {
 					req.setAttribute("listIdee", service.getListTop());
-					this.getServletContext().getRequestDispatcher("/WEB-INF/Pages/TopUtulisateur.jsp").forward(req,resp);
+					this.getServletContext().getRequestDispatcher("/WEB-INF/Pages/TopUtilisateur.jsp").forward(req,resp);
 				}
 				if(req.getParameter("action").equals("creation")) {
 					this.getServletContext().getRequestDispatcher("/WEB-INF/Pages/CreateIdee.jsp").forward(req, resp);

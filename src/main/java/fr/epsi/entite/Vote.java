@@ -14,7 +14,7 @@ public class Vote {
 	private Long id;
 	
 	@ManyToOne
-	private Utulisateur utulisateur;
+	private Utilisateur utilisateur;
 	
 	@ManyToOne
 	private Idee idee;
@@ -26,12 +26,12 @@ public class Vote {
 		top,flop
 	};
 	
-	public Utulisateur getUtulisateur() {
-		return utulisateur;
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
 	}
 	
-	public void setUtulisateur(Utulisateur utulisateur) {
-		this.utulisateur = utulisateur;
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
 	}
 	
 	public Idee getIdee() {

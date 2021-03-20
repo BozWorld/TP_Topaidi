@@ -17,7 +17,7 @@
 <table>
  <c:forEach var="i" items="${listIdee}" >
     <tr>
-    	 <td><c:out value="${i.utulisateur.mail}"></c:out></td>
+    	 <td><c:out value="${i.utilisateur.mail}"></c:out></td>
 	     <td><c:out value="${i.description}"></c:out></td>
 	     <td><c:out value="${i.date}"></c:out></td>
     </tr>

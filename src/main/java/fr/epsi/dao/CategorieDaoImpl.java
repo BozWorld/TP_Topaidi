@@ -15,7 +15,7 @@ import fr.epsi.entite.Categorie;
 import fr.epsi.entite.Commentaire;
 import fr.epsi.entite.Idee;
 import fr.epsi.entite.Vote;
-import fr.epsi.entite.Utulisateur;
+import fr.epsi.entite.Utilisateur;
 import fr.epsi.entite.Idee;
 
 public class CategorieDaoImpl implements CategorieDao{
