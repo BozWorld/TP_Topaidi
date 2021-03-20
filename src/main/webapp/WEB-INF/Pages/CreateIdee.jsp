@@ -10,6 +10,8 @@
 <body>
 <div class="container">
 <%@include file="commons/menu.jsp" %>
+
+<h1>Crée votre propre idée</h1>
 	<form action="Idee?actionPost=cree" method="post">
 	<input type="text" name="description" placeholder="Description"/>
 	<input type="text"name="image" placeholder="url de l'image"/>
