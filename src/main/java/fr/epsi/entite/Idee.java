@@ -18,7 +18,7 @@ public class Idee {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToOne
+	@ManyToOne
 	private Utulisateur utulisateur;
 	
 	@OneToMany(mappedBy = "idee")
@@ -29,6 +29,8 @@ public class Idee {
 	
 	@ManyToOne
 	private Categorie categorie;
+	
+	private String titre;
 	
 	private String photo;
 	
@@ -43,7 +45,13 @@ public class Idee {
 	private int totalVote;
 	
 	
+	public String getTitre() {
+		return titre;
+	}
 	
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
 	public Utulisateur getUtulisateur() {
 		return utulisateur;
 	}
