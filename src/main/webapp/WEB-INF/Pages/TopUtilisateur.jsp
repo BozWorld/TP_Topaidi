@@ -24,8 +24,6 @@
  </c:forEach>
  </table>
 
-<a class="waves-effect waves-light btn" href="Idees?action=create">Ajouter votre commentaire! </a>
-
 </div>
 
 </body>
